@@ -1,19 +1,32 @@
-import React from 'react';
-import { Navbar, Container, Button, ButtonGroup } from 'react-bootstrap';
+import { Navbar, Container, Nav, NavDropdown, Button } from 'react-bootstrap';
+import { Bell, PersonCircle, QuestionCircle, ChatDots } from 'react-bootstrap-icons';
 
 const TopNavbar = () => {
   return (
-    <Navbar bg="light" variant="light" className="border-bottom shadow-sm">
-      <Container>
-        <Navbar.Brand>Floor Plan Editor</Navbar.Brand>
+    <Navbar bg="dark" variant="dark" expand="lg" style={{ padding: '0.5rem 1rem' }}>
+      <Container fluid>
+        <Navbar.Brand>Floorplan Editor</Navbar.Brand>
+        <Nav className="ms-auto align-items-center">
+          <Button variant="outline-light" size="sm" className="me-2">
+            <QuestionCircle size={18} className="me-1" />
+            Help
+          </Button>
 
-        <ButtonGroup aria-label="Toolbar">
-          <Button variant="outline-primary">Save</Button>
-          <Button variant="outline-secondary">Undo</Button>
-          <Button variant="outline-secondary">Redo</Button>
-          <Button variant="outline-success">Zoom In</Button>
-          <Button variant="outline-danger">Zoom Out</Button>
-        </ButtonGroup>
+          <Button variant="outline-light" size="sm" className="me-2">
+            <ChatDots size={18} className="me-1" />
+            Feedback
+          </Button>
+
+          <Button variant="outline-light" size="sm" className="me-2">
+            <Bell size={18} />
+          </Button>
+
+          <NavDropdown title={<PersonCircle size={24} />} id="navbarScrollingDropdown" align="end">
+            <NavDropdown.Item href="#profile">Profile</NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item href="#logout">Logout</NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
       </Container>
     </Navbar>
   );
